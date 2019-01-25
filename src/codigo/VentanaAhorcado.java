@@ -5,6 +5,7 @@
  */
 package codigo;
 
+import java.awt.Component;
 import java.awt.Image;
 import java.util.Random;
 import javax.swing.ImageIcon;
@@ -74,6 +75,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
           dibujaImagen(numeroDeFallos);
           if (numeroDeFallos >= 6){
               partidaTerminada = true;
+              deshabilitaTodosLosBotones();
           }
       }
       
@@ -81,6 +83,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
       if (!palabraConGuiones.contains("_")){
           dibujaImagen(-1);
           partidaTerminada = true;
+          deshabilitaTodosLosBotones();
       }
   }   
   
@@ -115,13 +118,22 @@ private String eligePalabra(){
     //este método elegirá una palabra al azar de una lista de palabras
     //la lista de palabras la vamos a guardar en un array 
     
-    String [] listaPalabras = {"HOLA", "ADIOS", "NONOSVAMOS","ODIOELLOL","LOLESDROGA"};
+    String [] listaPalabras = {"hola", "ADIOSMUNDOCRUEL", "NONOSVAMOS","ODIOELLOL","LOLESDROGA"};
         //declaro una variable aleatoria
     Random aleatorio = new Random();
     int posicion = aleatorio.nextInt(listaPalabras.length);
-    return listaPalabras[posicion];
+    return listaPalabras[posicion].toUpperCase();
 }   
     
+    private void deshabilitaTodosLosBotones() {
+        Component[] componentes = getContentPane().getComponents();
+        for (int i = 0; i < componentes.length; i++) {
+            if (componentes[i] instanceof JButton) {
+                componentes[i].setEnabled(false);
+            }
+        }
+    }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -132,6 +144,9 @@ private String eligePalabra(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jButton8 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
         display = new javax.swing.JLabel();
         visorImagen = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -163,6 +178,34 @@ private String eligePalabra(){
         jButton29 = new javax.swing.JButton();
         jButton30 = new javax.swing.JButton();
 
+        jButton8.setText("jButton8");
+
+        jButton16.setText("jButton16");
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jButton16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addGap(81, 81, 81))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap(298, Short.MAX_VALUE)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                        .addComponent(jButton8)
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                        .addComponent(jButton16)
+                        .addGap(42, 42, 42))))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         display.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -171,6 +214,7 @@ private String eligePalabra(){
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("A");
+        jButton1.setFocusPainted(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton1MousePressed(evt);
@@ -179,6 +223,7 @@ private String eligePalabra(){
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton2.setText("B");
+        jButton2.setFocusPainted(false);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton2MousePressed(evt);
@@ -187,6 +232,7 @@ private String eligePalabra(){
 
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton3.setText("C");
+        jButton3.setFocusPainted(false);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton3MousePressed(evt);
@@ -195,6 +241,7 @@ private String eligePalabra(){
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton4.setText("D");
+        jButton4.setFocusPainted(false);
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton4MousePressed(evt);
@@ -203,6 +250,7 @@ private String eligePalabra(){
 
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton5.setText("E");
+        jButton5.setFocusPainted(false);
         jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton5MousePressed(evt);
@@ -211,6 +259,7 @@ private String eligePalabra(){
 
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton6.setText("F");
+        jButton6.setFocusPainted(false);
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton6MousePressed(evt);
@@ -219,6 +268,7 @@ private String eligePalabra(){
 
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton7.setText("G");
+        jButton7.setFocusPainted(false);
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton7MousePressed(evt);
@@ -227,6 +277,7 @@ private String eligePalabra(){
 
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton9.setText("H");
+        jButton9.setFocusPainted(false);
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton9MousePressed(evt);
@@ -235,6 +286,7 @@ private String eligePalabra(){
 
         jButton10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton10.setText("I");
+        jButton10.setFocusPainted(false);
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton10MousePressed(evt);
@@ -243,6 +295,7 @@ private String eligePalabra(){
 
         jButton11.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton11.setText("L");
+        jButton11.setFocusPainted(false);
         jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton11MousePressed(evt);
@@ -251,6 +304,7 @@ private String eligePalabra(){
 
         jButton12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton12.setText("J");
+        jButton12.setFocusPainted(false);
         jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton12MousePressed(evt);
@@ -259,6 +313,7 @@ private String eligePalabra(){
 
         jButton13.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton13.setText("M");
+        jButton13.setFocusPainted(false);
         jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton13MousePressed(evt);
@@ -267,6 +322,7 @@ private String eligePalabra(){
 
         jButton14.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton14.setText("K");
+        jButton14.setFocusPainted(false);
         jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton14MousePressed(evt);
@@ -275,6 +331,7 @@ private String eligePalabra(){
 
         jButton15.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton15.setText("N");
+        jButton15.setFocusPainted(false);
         jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton15MousePressed(evt);
@@ -283,6 +340,7 @@ private String eligePalabra(){
 
         jButton17.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton17.setText("Ñ");
+        jButton17.setFocusPainted(false);
         jButton17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton17MousePressed(evt);
@@ -291,6 +349,7 @@ private String eligePalabra(){
 
         jButton18.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton18.setText("O");
+        jButton18.setFocusPainted(false);
         jButton18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton18MousePressed(evt);
@@ -299,6 +358,7 @@ private String eligePalabra(){
 
         jButton19.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton19.setText("R");
+        jButton19.setFocusPainted(false);
         jButton19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton19MousePressed(evt);
@@ -307,6 +367,7 @@ private String eligePalabra(){
 
         jButton20.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton20.setText("P");
+        jButton20.setFocusPainted(false);
         jButton20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton20MousePressed(evt);
@@ -315,6 +376,7 @@ private String eligePalabra(){
 
         jButton21.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton21.setText("S");
+        jButton21.setFocusPainted(false);
         jButton21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton21MousePressed(evt);
@@ -323,6 +385,7 @@ private String eligePalabra(){
 
         jButton22.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton22.setText("Q");
+        jButton22.setFocusPainted(false);
         jButton22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton22MousePressed(evt);
@@ -331,6 +394,7 @@ private String eligePalabra(){
 
         jButton23.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton23.setText("T");
+        jButton23.setFocusPainted(false);
         jButton23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton23MousePressed(evt);
@@ -339,6 +403,7 @@ private String eligePalabra(){
 
         jButton24.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton24.setText("U");
+        jButton24.setFocusPainted(false);
         jButton24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton24MousePressed(evt);
@@ -347,6 +412,7 @@ private String eligePalabra(){
 
         jButton25.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton25.setText("V");
+        jButton25.setFocusPainted(false);
         jButton25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton25MousePressed(evt);
@@ -355,6 +421,7 @@ private String eligePalabra(){
 
         jButton26.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton26.setText("X");
+        jButton26.setFocusPainted(false);
         jButton26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton26MousePressed(evt);
@@ -363,6 +430,7 @@ private String eligePalabra(){
 
         jButton27.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton27.setText("W");
+        jButton27.setFocusPainted(false);
         jButton27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton27MousePressed(evt);
@@ -371,6 +439,7 @@ private String eligePalabra(){
 
         jButton28.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton28.setText("Y");
+        jButton28.setFocusPainted(false);
         jButton28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton28MousePressed(evt);
@@ -378,6 +447,7 @@ private String eligePalabra(){
         });
 
         jButton29.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButton29.setFocusPainted(false);
         jButton29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton29MousePressed(evt);
@@ -391,6 +461,7 @@ private String eligePalabra(){
 
         jButton30.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton30.setText("Z");
+        jButton30.setFocusPainted(false);
         jButton30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton30MousePressed(evt);
@@ -684,6 +755,7 @@ private String eligePalabra(){
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
@@ -704,7 +776,9 @@ private String eligePalabra(){
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel visorImagen;
     // End of variables declaration//GEN-END:variables
 }
