@@ -6,6 +6,7 @@
 package codigo;
 
 import java.awt.Image;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -17,6 +18,8 @@ public class VentanaAhorcado extends javax.swing.JFrame {
 
     String palabraOculta = "CETYS";
     int numeroDeFallos = 0; 
+    //variable que indica si la partida ha terminado
+    boolean partidaTerminada = false;
     
     
     /**
@@ -24,6 +27,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
      */
     public VentanaAhorcado() {
         initComponents();
+        palabraOculta = eligePalabra();
         //inicializo el display del juego para que tenga
         //tantos guiones bajos y espacios como la palabra oculta
         String aux = "";
@@ -36,8 +40,10 @@ public class VentanaAhorcado extends javax.swing.JFrame {
 
     
   private void chequeaBoton(JButton boton){
-      boton.setEnabled(false);
-      chequeaLetra(boton.getText());
+     if (!partidaTerminada){
+        boton.setEnabled(false);
+        chequeaLetra(boton.getText());
+     }
   }  
   
 
@@ -66,11 +72,15 @@ public class VentanaAhorcado extends javax.swing.JFrame {
       if(!acierto){
           numeroDeFallos++;
           dibujaImagen(numeroDeFallos);
+          if (numeroDeFallos >= 6){
+              partidaTerminada = true;
+          }
       }
       
       //si el if se cumple es porque ya no hay guiones en el display
       if (!palabraConGuiones.contains("_")){
           dibujaImagen(-1);
+          partidaTerminada = true;
       }
   }   
   
@@ -100,7 +110,17 @@ public class VentanaAhorcado extends javax.swing.JFrame {
       visorImagen.setIcon(miImagen);
   }
   
+  
+private String eligePalabra(){
+    //este método elegirá una palabra al azar de una lista de palabras
+    //la lista de palabras la vamos a guardar en un array 
     
+    String [] listaPalabras = {"HOLA", "ADIOS", "NONOSVAMOS","ODIOELLOL","LOLESDROGA"};
+        //declaro una variable aleatoria
+    Random aleatorio = new Random();
+    int posicion = aleatorio.nextInt(listaPalabras.length);
+    return listaPalabras[posicion];
+}   
     
     
     /**
